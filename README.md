@@ -11,3 +11,4 @@
 
 ## 部署
 
+- https://liuhll.github.io/hexo-blog-deploy/
