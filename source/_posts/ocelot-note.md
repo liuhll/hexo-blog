@@ -1,6 +1,6 @@
 ---
-title: Ocelot学习笔记
-date: 2018-09-24 21:56:31
+title: Ocelot笔记
+date: 2018-09-26 21:56:31
 categories: "微服务"
 tags: 
   - 网关
