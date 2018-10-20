@@ -53,10 +53,11 @@ animal: [Cat, Dog]
 
 数据结构的子成员是一个数组，则可以在该项下面缩进空格:
 ```yaml
-- animal
+- 
  - Cat
  - Dog
  - Goldfish
+# 解析为: [[Cat, Dog, Goldfish]]
 ```
 
 ## 复合结构
