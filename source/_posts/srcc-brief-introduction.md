@@ -21,12 +21,12 @@ SRCC 英文全称为: `Service Run Control Center`,中文名称为: `服务运�
 1. {% post_link srcc-development-env 搭建开发环境 %}
 2. {% post_link srcc-setup-microservice 创建微服务项目 %}  
 3. {% post_link srcc-orchestration-microservice 使用`docker-compose`编排微服务 %}
-4.  {% post_link srcc-business-coding 编写业务代码 %} 
+4. {% post_link srcc-business-coding 编写业务代码 %} 
 
 ## SRCC框架的通信方式
-1. [请求-异步响应](#)
-2. [发布-异步订阅](#)
-3. [通知](#)
+1. {% post_link srcc-request-response 请求-异步响应 %}
+2. {% post_link srcc-publish-subscribe 发布-异步订阅 %} 
+3. {% post_link srcc-notice 通知 %} 
 
 ## SRCC框架配置
 1. [微服务组件配置](#)
