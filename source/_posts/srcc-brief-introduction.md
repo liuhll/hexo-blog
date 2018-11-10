@@ -31,6 +31,6 @@ SRCC 英文全称为: `Service Run Control Center`,中文名称为: `服务运�
 ## SRCC框架配置
 1. {% post_link srcc-config 微服务组件配置 %}
 2. {% post_link srcc-service-registry-center-config 服务注册中心配置 %}
-3. [消息中间件配置](#)
+3. {% post_link srcc-message-middleware-config 消息中间件配置 %}
 4. [缓存中心件配置](#)
 5. [日志组件配置](#)
