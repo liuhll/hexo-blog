@@ -5,6 +5,7 @@ categories: "设计模式"
 tags:
   - 抽象工厂模式
   - 创建型
+  - 设计模式
 ---
 
 ## 动机(Motivate)
