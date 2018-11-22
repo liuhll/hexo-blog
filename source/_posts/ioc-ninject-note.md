@@ -73,7 +73,7 @@ ninjectKernel.Bind<ITester>().To<NinjectTester>().WithPropertyValue('_Message', 
 10. Inject属性
   可以通过在构造函数、属性和字段上加 Inject特性指定注入的属性、方法和字段等，如果没有在构造函数上指定`Inject`特性，则默认选择第一个构造函数
   
-  ```csharp
+```csharp
 public class MessageDB: IMessage
 {
   public MessageDB()
@@ -97,8 +97,7 @@ public class MessageDB: IMessage
     return '从数据中读取消息号!';
   }
 }
-
-  ```
+```
 
 ## ASP.NET MVC与Ninject
 1. 继承DefaultControllerFactory，重载GetControllerInstance方法，实现自己的NinjectControllerFactory类
