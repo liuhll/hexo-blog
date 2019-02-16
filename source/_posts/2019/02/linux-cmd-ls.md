@@ -1,6 +1,6 @@
 ---
 title: ls命令
-date: 2019-01-06 17:03:00
+date: 2019-02-16 17:03:00
 categories: "linux"
 tags:
 - linux命令
