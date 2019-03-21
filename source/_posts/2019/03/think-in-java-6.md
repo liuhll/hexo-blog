@@ -1,6 +1,7 @@
 ---
 title: Java编程思想学习笔记：初始化与清理
 date: 2019-03-17 13:42:31
+categories: "java"
 tags:
 - java
 - java编程思想

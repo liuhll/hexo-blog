@@ -1,6 +1,7 @@
 ---
 title: Java编程思想学习笔记三:static关键字的四种用法
 date: 2019-03-14 22:03:51
+categories: "java"
 tags:
 - java
 - java编程思想
