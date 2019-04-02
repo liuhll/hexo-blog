@@ -1,11 +1,10 @@
 ---
-title: 微服务框架Srcc之编排微服务
+title: 微服务框架Surging之编排微服务
 date: 2018-11-05 21:00:03
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
@@ -54,25 +53,25 @@ services:
   consul:
     image: consul:latest
     networks:
-      - srcc_demo
+      - surging_demo
   
   redis:
     image: bitnami/redis:latest
     networks:
-      - srcc_demo
+      - surging_demo
   
   rabbitmq:
     image: rabbitmq:management
     networks:
-      - srcc_demo
+      - surging_demo
 
   dgitalreleaseeval:
-    image: srccdemo/dgitalreleaseeval:${TAG:-latest}
+    image: surgingdemo/dgitalreleaseeval:${TAG:-latest}
     build:
       context: .
-      dockerfile: Sample/Services/DigitalReleaseEval/SRCC.Demo.DigitalReleaseEvalHost/Dockerfile
+      dockerfile: Sample/Services/DigitalReleaseEval/Surging.Demo.DigitalReleaseEvalHost/Dockerfile
     networks:
-      - srcc_demo
+      - surging_demo
     depends_on:
       - consul
       - redis
@@ -81,25 +80,25 @@ services:
       - meteorologicaleval
       - operationrestrictioneval
 
-  srccserver_ws:
-    image: srccdemo/srccserver_ws:${TAG:-latest}
+  surgingserver_ws:
+    image: surgingdemo/surgingserver_ws:${TAG:-latest}
     build:
       context: .
-      dockerfile: Sample/Services/WebSocketServer/SRCC.Demo.WebSocketHost/Dockerfile
+      dockerfile: Sample/Services/WebSocketServer/Surging.Demo.WebSocketHost/Dockerfile
     networks:
-      - srcc_demo
+      - surging_demo
     depends_on:
       - consul
       - redis
       - rabbitmq
 
   airportguaranteeeval:
-    image: srccdemo/airportguaranteeeval:${TAG:-latest}
+    image: surgingdemo/airportguaranteeeval:${TAG:-latest}
     build:
       context: .
-      dockerfile: Sample/Services/AirportGuaranteeEval/SRCC.Demo.AirportGuaranteeEvalHost/Dockerfile
+      dockerfile: Sample/Services/AirportGuaranteeEval/Surging.Demo.AirportGuaranteeEvalHost/Dockerfile
     networks:
-      - srcc_demo
+      - surging_demo
     depends_on:
       - consul
       - redis
@@ -107,30 +106,30 @@ services:
       - meteorologicaleval
    
   meteorologicaleval:
-    image: srccdemo/meteorologicaleval:${TAG:-latest}
+    image: surgingdemo/meteorologicaleval:${TAG:-latest}
     build:
       context: .
-      dockerfile: Sample/Services/MeteorologicalEval/SRCC.Demo.MeteorologicalEvalHost/Dockerfile
+      dockerfile: Sample/Services/MeteorologicalEval/Surging.Demo.MeteorologicalEvalHost/Dockerfile
     networks:
-      - srcc_demo
+      - surging_demo
     depends_on:
       - consul
       - redis
       - rabbitmq
 
   operationrestrictioneval:
-    image: srccdemo/operationrestrictioneval:${TAG:-latest}
+    image: surgingdemo/operationrestrictioneval:${TAG:-latest}
     build:
       context: .
-      dockerfile: Sample/Services/OperationRestrictionEval/SRCC.Demo.OperationRestrictionEvalHost/Dockerfile
+      dockerfile: Sample/Services/OperationRestrictionEval/Surging.Demo.OperationRestrictionEvalHost/Dockerfile
     networks:
-      - srcc_demo
+      - surging_demo
     depends_on:
       - consul
       - redis
       - rabbitmq
 networks:
-  srcc_demo: 
+  surging_demo: 
     driver: bridge
     ipam:
       driver: default
@@ -165,7 +164,7 @@ services:
       - "5673:5672"
   dgitalreleaseeval:
     environment:
-      Srcc_Server_Address: ${DGITALRELASE_SRCC_SERVER_ADDRESS:-dgitalreleaseeval}
+      Surging_Server_Address: ${DGITALRELASE_Surging_SERVER_ADDRESS:-dgitalreleaseeval}
       Register_Conn: ${REGISTER_CONN:-consul:8500}
       Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
       UseEngineParts: "DotNettyModule;NLogModule;ConsulModule;EventBusRabbitMQModule;CachingModule;KestrelHttpModule"
@@ -178,9 +177,9 @@ services:
     ports:
       - "101:100"
       - "8081:8080"
-  srccserver_ws:
+  surgingserver_ws:
     environment:
-      Srcc_Server_Address: ${DGITALRELASEWS_SRCC_SERVER_ADDRESS:-srccserver_ws}
+      Surging_Server_Address: ${DGITALRELASEWS_Surging_SERVER_ADDRESS:-surgingserver_ws}
       Register_Conn: ${REGISTER_CONN:-consul:8500}
       Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
       UseEngineParts: "DotNettyModule;NLogModule;ConsulModule;EventBusRabbitMQModule;CachingModule;WSProtocolModule"
@@ -196,7 +195,7 @@ services:
          
   airportguaranteeeval:
     environment:
-      Srcc_Server_Address: ${AIRPORTGUARANTE_SRCC_SERVER_ADDRESS:-airportguaranteeeval}
+      Surging_Server_Address: ${AIRPORTGUARANTE_Surging_SERVER_ADDRESS:-airportguaranteeeval}
       Register_Conn: ${REGISTER_CONN:-consul:8500}
       Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
       EventBusConnection: ${RABBITMQ_CONNECTION:-rabbitmq}
@@ -211,7 +210,7 @@ services:
 
   meteorologicaleval:
     environment:
-      Srcc_Server_Address: ${METEOROGICAL_SRCC_SERVER_ADDRESS:-meteorologicaleval}
+      Surging_Server_Address: ${METEOROGICAL_Surging_SERVER_ADDRESS:-meteorologicaleval}
       Register_Conn: ${REGISTER_CONN:-consul:8500}
       Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
       EventBusConnection: ${RABBITMQ_CONNECTION:-rabbitmq}
@@ -226,7 +225,7 @@ services:
 
   operationrestrictioneval:
     environment:
-      Srcc_Server_Address: ${OPERTIONRESTRICTION_SRCC_SERVER_ADDRESS:-operationrestrictioneval}
+      Surging_Server_Address: ${OPERTIONRESTRICTION_Surging_SERVER_ADDRESS:-operationrestrictioneval}
       Register_Conn: ${REGISTER_CONN:-consul:8500}
       Register_SessionTimeout: ${REGISTER_SESSION_TIMEOUT:-50}
       EventBusConnection: ${RABBITMQ_CONNECTION:-rabbitmq}

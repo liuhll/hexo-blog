@@ -1,14 +1,13 @@
 ---
-title:  微服务框架Srcc之缓存中间件配置
+title:  微服务框架Surging之缓存中间件配置
 date: 2018-11-10 19:56:00
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
 ---
 
-通过指定`CachingSettings.Class`来选择配置的缓存中间件的上下文参数,当前Srcc支持两种类型的缓存中间件:
+通过指定`CachingSettings.Class`来选择配置的缓存中间件的上下文参数,当前Surging支持两种类型的缓存中间件:
 1. Redis
 2. MemoryCache
 
@@ -24,7 +23,7 @@ tags:
 | CachingSettings.Properties | 配置缓存中间件上下文的参数 | 参数类型为数组 |
 
 # redis配置
-CachingSettings.Class 配置项的值为: `SunWin.SRCC.Caching.RedisCache.RedisContext,SunWin.SRCC.Caching`
+CachingSettings.Class 配置项的值为: `Surging.Core.Caching.RedisCache.RedisContext,Surging.Core.Caching`
 除此之外，通过CachingSettings.Properties 配置redis的链接、账号、密码、默认到期时间、连接超时等属性。
 
 # MemoryCache

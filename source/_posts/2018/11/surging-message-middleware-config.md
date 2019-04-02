@@ -1,15 +1,14 @@
 ---
-title: 微服务框架Srcc之消息中间件配置
+title: 微服务框架Surging之消息中间件配置
 date: 2018-11-10 19:50:51
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
-SRCC框架支持RabbitMq和Kafka中间件。
+Surging框架支持RabbitMq和Kafka中间件。
 
 # RabbitMq中间件配置
 | 配置项 | 说明 | 备注 |

@@ -1,11 +1,10 @@
 ---
-title: 微服务框架Srcc之开发环境
+title: 微服务框架Surging之开发环境
 date: 2018-11-4 20:45:20
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
@@ -13,11 +12,11 @@ tags:
 
 ## 安装开发工具--VS2017
  
-使用 visio studio 2017作为开发者工具，在安装vs2017时,请勾选.net core 开发必要的组件。如果已经安装了vs2017，通过Nuget服务仍无法安装 SRCC 组件包时、或是无法通过编译时,请更新vs2017到最新版本，并勾选开发.net core必要的组件。
+使用 visio studio 2017作为开发者工具，在安装vs2017时,请勾选.net core 开发必要的组件。如果已经安装了vs2017，通过Nuget服务仍无法安装 Surging 组件包时、或是无法通过编译时,请更新vs2017到最新版本，并勾选开发.net core必要的组件。
 
 ## 配置Nuget服务
 推荐搭建公司内部nuget环境，用于管理公司内的开发的组件包，关于Nuget服务的搭建[请参考](http://www.imooc.com/article/20944)。
-SRCC的架构通过内部的Nuget服务器进行发布和升级，所以，在安装完 vs2017 后，需要新增内部的Nuget服务的配置。
+Surging的架构通过内部的Nuget服务器进行发布和升级，所以，在安装完 vs2017 后，需要新增内部的Nuget服务的配置。
 通过下图对nuget进行配置:
 
 ![nuget配置](sunwin.nuget.config.png)

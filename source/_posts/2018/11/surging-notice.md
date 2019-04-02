@@ -1,22 +1,21 @@
 ---
-title: 微服务框架Srcc通信之通知
+title: 微服务框架Surging通信之通知
 date: 2018-11-08 20:07:49
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
-SRCC框架支持Netty与websocket进行通信。
+Surging框架支持Netty与websocket进行通信。
 
 # 应用场景
 WebSocket用于服务端向客户端向客户端推送消息。
 
 # 用法
 ## 构建ws服务主机
-请参考{% post_link srcc-setup-microservice 创建微服务项目 %}  
+请参考{% post_link surging-setup-microservice 创建微服务项目 %}  
 
 ## 定义服务与命令。
 Ws的服务与命令的定义与应用业务接口的定义一致，但是需要注意的是，命令的负载均衡算法必须选择哈希算法,命令的第一个参数必须为`string`类型,否则无法通过分布式部署ws服务(,Ws服务是通过命令接口的第一个参数的Hash值进行寻址的)。

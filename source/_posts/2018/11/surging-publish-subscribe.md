@@ -1,16 +1,15 @@
 ---
-title: 微服务框架Srcc之事件总线(发布-订阅)
+title: 微服务框架Surging之事件总线(发布-订阅)
 date: 2018-11-06 20:07:31
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
 # 消息中间件
-SRCC服务引擎扩展了基于eventbus的rabbitmq和kafka事件总线，组件可以选择绑定 Normal，Retry(Dead letter)，Fail ，如下图所示:
+Surging服务引擎扩展了基于eventbus的rabbitmq和kafka事件总线，组件可以选择绑定 Normal，Retry(Dead letter)，Fail ，如下图所示:
 
 ![eventbus](evnetbus.png)
 
@@ -25,7 +24,7 @@ SRCC服务引擎扩展了基于eventbus的rabbitmq和kafka事件总线，组件�
 在购买商品/服务生成订单业务中，会设定支付时间，如果一直未支付，会直接关闭订单，而这个场景可以通过死信队列的来解决
 
 # 用法
-1. 通过`srccsetting.json`的配置文件的`Srcc.Packages`节点指定使用的消息中间件的组件包,如果使用的是RabbitMq则指定`EventBusRabbitMQModule`模块,使用的是`EventBusKafkaModule`模块,并将相应的组件包安装到应用层。
+1. 通过`surgingsetting.json`的配置文件的`Surging.Packages`节点指定使用的消息中间件的组件包,如果使用的是RabbitMq则指定`EventBusRabbitMQModule`模块,使用的是`EventBusKafkaModule`模块,并将相应的组件包安装到应用层。
 
 2. 通过`eventBusSettings.json`对使用的消息中间件进行配置
 如果使用的是RabbitMq消息中间件，则配置的案例为:
@@ -39,7 +38,7 @@ SRCC服务引擎扩展了基于eventbus的rabbitmq和kafka事件总线，组件�
   "RetryCount": "${RetryCount}|1", //重试次数，这里设置的延迟队列，只能设置为1
   "FailCount": "${FailCount}|3", //处理失败流程重试次数，如果出现异常，会进行重试
   "PrefetchCount": "${PrefetchCount}|0", //设置均匀分配消费者消息的个数
-  "BrokerName": "srcc_demo",
+  "BrokerName": "surging_demo",
   "Port": "${EventBusPort}|5672"
 }
 ```
@@ -54,7 +53,7 @@ SRCC服务引擎扩展了基于eventbus的rabbitmq和kafka事件总线，组件�
     "EnableAutoCommit": "${EnableAutoCommit}|false",
     "LogConnectionClose": "${LogConnectionClose}|false",
     "OffsetReset": "${OffsetReset}|earliest",
-    "GroupID": "${EventBusGroupID}|srccdemo"
+    "GroupID": "${EventBusGroupID}|surgingdemo"
   }
 ```
 

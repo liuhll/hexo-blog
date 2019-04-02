@@ -1,11 +1,10 @@
 ---
-title: 微服务框架Srcc之请求响应通信
+title: 微服务框架Surging之请求响应通信
 date: 2018-11-06 19:35:14
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 

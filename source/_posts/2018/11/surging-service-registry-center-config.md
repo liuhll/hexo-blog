@@ -1,15 +1,14 @@
 ---
-title: 微服务框架Srcc之服务注册中心配置
+title: 微服务框架Surging之服务注册中心配置
 date: 2018-11-10 19:46:01
 categories: "微服务"
 tags:
   - 微服务
-  - surging
-  - Srcc
+  - Surging
   - 开源框架
 ---
 
-SRCC 支持Consul和Zookeeper作为服务注册中心。
+Surging 支持Consul和Zookeeper作为服务注册中心。
 
 # Consul配置
 
