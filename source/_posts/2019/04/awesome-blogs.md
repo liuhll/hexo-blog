@@ -21,6 +21,7 @@ tags:
 ### Java集合
 - [java集合（list,set,map)](https://www.cnblogs.com/yangliguo/p/7476788.html)
 - [Java 集合系列目录(Category)](https://www.cnblogs.com/skywang12345/p/3323085.html)
+- [常用的几种java集合类总结](https://blog.csdn.net/gejiangbo222/article/details/81540616)
 
 ### 反射
 
