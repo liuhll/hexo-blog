@@ -35,6 +35,9 @@ tags:
 
 ### 异常处理
 
+### 身份认证与授权
+- [Spring Security教程](https://blog.csdn.net/jaune161/article/details/17639305)
+
 ## Maven
 - [Maven常用插件](http://www.cnblogs.com/avivaye/p/5341341.html)
 
