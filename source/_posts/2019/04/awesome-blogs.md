@@ -39,6 +39,9 @@ tags:
 - [Spring Security教程](https://blog.csdn.net/jaune161/article/details/17639305)
 - [Spring Cloud下微服务权限方案](https://zhuanlan.zhihu.com/p/29345083)
 
+### Java常用包/工具
+- [lombok使用教程](https://blog.csdn.net/u011719271/article/details/53842420)
+
 ## Maven
 - [Maven常用插件](http://www.cnblogs.com/avivaye/p/5341341.html)
 
