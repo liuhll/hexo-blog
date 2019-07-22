@@ -202,7 +202,7 @@ networks:
 ```
 由于开发过程中的基础服务并没有考虑到高可用,在生产环境中建议基础服务集群化。
 
-微服务组件的编排请参考: 
+微服务组件的编排请参考: https://github.com/surging-cloud/Surging.Hero/tree/develop/hero/docker-compose/surging.hero
 
 ## 开发与调试
 其实在开发过程中,由于业务模块的不同，责任人不同,开发团队不同，开发者拥有的权限不同,业务模块的代码有可能放到不同的git仓库。建议将微服务服务组件的应用接口层和Domian.Shared可以发布的企业内部的nuget服务。其他微服务组件可以通过nuget服务引用应用接口层和Domian.Shared组件。
@@ -212,7 +212,34 @@ networks:
 首次使用docker-compose进行调试服务时,由于vs会从网络上下载`vsdbg`组件,由于网络原因,一般都会比较慢,开发者可以从其他同事的电脑的家目录下拷贝`vsdbg`到本机,重新打开vs,然后再进行调试。
 
 # Devops
+## 业务流程
+在开发过程中,我们使用Jenkins实现持续集成和部署。整个流程如下所述:
+1. 开发者编写业务代码或修复完bug后,提交代码,push到远程仓库,并发起pr请求,请求合并到develop分支。
+2. 当代码审核通过后,合并到develop分支后,通过设置`gitlab`或是`gitee`的`webhook`，触发jenkins执行构建。或是通过设置Jenkins的定时任务检测代码库变化,当代码库变化后,jenkins获取最新代码,执行构建操作(由于当时我们Jenkins部署的环境是内网,gitee无法访问公司内网,所以无法设置webhook)
+3. Jenkins通过预先设置好的命令和脚本执行构建打包程序。本质上是执行`docker-compose build`打包docker镜像,当完成构建和打包docker镜像后,然后将镜像推送到企业内部的docker镜像仓库。
+4. 之后,jenkins通过Jenkins SSH插件将部署脚本拷贝到k8集群的master节点,通过ssh插件在k8s master节点执行部署命令。完成后,微服务集群将自动部署到指定的k8s集群中。
+
+整个devops流程如下所述(但是我们没有与钉钉做集成):
+![devops](./surging-practical-experi/devops.png)
+
+## 注意事项
+1. 企业内部的docker仓库除了可以使用`harbor`搭建之外,还可以使用`nexus`。推荐使用`nexus`作为仓库管理服务，因为`nexus`除了支持docker镜像仓库之外,还支持nuget包、npm等格式的包管理。
+2. 建议企业内部在构建业务平台时,根据业务模块划分主题,一个主题对应一个数据库,一个git仓库,一个项目组,多个相关的微服务组件，一个Jenkins构建项目。每个主题独立的进行持续集成与部署。
+3. 建议基础服务consul、rabbitmq、redis考虑集群。
 
 # 产品交付和部署
+1. 一般的，我们通过docker镜像完成产品交付与部署。可以通过编写部署脚本在k8s集群或是通过rancher进行部署。
+2. 可以使用k8s或是rancher提供的Dashborad进行容器和服务的监控和管理。
 
 # 体会
+1. surging的设计思想是无疑正确的。相比于市面上其他的.net微服务框架或是分布式框架,无论是服务治理还是内部通信机制,服务引擎设置，主机寄宿均有独到之处。(abp vnext的微服务框架通过内部网关Ocelot进行通信,完全违反的去中心化设计，而且性能也相对较差的多)
+2. 在使用surging的过程中,也遇到了一些问题或是bug(例如:1.首次访问性能较差；2.服务实例无法支持同时扩展),在反馈到github社区或是请求作者协助,都能够得到及时反馈。目前作者已经即将完成对surging2.0的开发，相信会有更优秀的体验。
+3. 在开发和测试、部署和产品交付中推荐将服务容器化，推荐使用linux作为部署服务器。
+
+# 最后
+- 如果你对surging感兴趣,可以在github(https://github.com/dotnetcore/surging)上对surging关注。
+- 如果你对如何使用surging落地开发，您可以在github上关注surging.hero(https://github.com/surging-cloud)。
+  -  surging.hero是一个使用surging作为开发框架的权限管理平台。目前项目刚刚开始,欢迎各位开发者加入,如果您想加入surging.hero的开发或是愿意为surging的生态做出贡献,欢迎加入`surging-cloud`社区。
+  - 如果你希望加入`surging-cloud`社区，可以将你的github账号通过email到:1029765111@qq.com,并备注`申请加入 **surging-cloud社区** 即可。
+  - 如果您对surging.hero感兴趣并希望加入surging.hero的开发,也可以申请加入qq群:`713943626`。
+- 如果大家对surging确实感兴趣,后期我有时间的话,可以写一些我使用surging的经验或是对源码的理解。
