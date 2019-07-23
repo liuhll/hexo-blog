@@ -237,8 +237,8 @@ networks:
 3. 在开发和测试、部署和产品交付中推荐将服务容器化，推荐使用linux作为部署服务器。
 
 # 最后
-- 如果你对surging感兴趣,可以在github(https://github.com/dotnetcore/surging)上对surging关注。
-- 如果你对如何使用surging落地开发，您可以在github上关注surging.hero(https://github.com/surging-cloud)。
+- 如果你对surging感兴趣,可以在github上对[surging](https://github.com/dotnetcore/surging)关注。
+- 如果你对如何使用surging落地开发，您可以在github上关注[surging.hero](https://github.com/surging-cloud)。
   -  surging.hero是一个使用surging作为开发框架的权限管理平台。目前项目刚刚开始,欢迎各位开发者加入,如果您想加入surging.hero的开发或是愿意为surging的生态做出贡献,欢迎加入`surging-cloud`社区。
   - 如果你希望加入`surging-cloud`社区，可以将你的github账号通过email到:1029765111@qq.com,并备注`申请加入 **surging-cloud社区** 即可。
   - 如果您对surging.hero感兴趣并希望加入surging.hero的开发,也可以申请加入qq群:`713943626`。
